@@ -9,10 +9,9 @@ const api = {
         
     }
      catch (err) {
-
       console.log(err)
      }
 }
 };
 
-module.exports = api
+module.exports = api;
