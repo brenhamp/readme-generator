@@ -5,19 +5,25 @@
   ## Description
 
 
-  This program will create a new README markdown file based on user input.
+  This program will automatically generate a new markdown file based on the user's input. Easily create comprehensive README files that include a language badge and contact section, for your convenience.
   ## Table of Contents
   * [Installation](#installation)
   * [Usage](#usage)
+  * [Tests](#tests)
   * [License](#license)
   
   ## Installation
   
-  Node, Inquirer, Axios 
+  Requires Node, Inquirer, Axios, and a terminal like Git Bash. 
   
   ## Usage
+<iframe src="https://streamable.com/e/qsaf4w?loop=0" width="720" height="405" frameborder="0" allowfullscreen></iframe>
+
+  Run 'node index' in your terminal and answer the prompts. Your file will be automatically created at the end.
   
-  Run 'npm init' if you are missing the required packages. Then run 'node index'. Answer the prompts in your terminal. Your new markdown file will be generated automatically.
+  ## Tests
+  
+  Simply run the command and answer the prompts. The prompts aren't context-sensitive, so feel free to just type "test" or whatever you want.
   
   ## License
   
@@ -25,7 +31,7 @@
   
   ---
   
-  ## Questions?
+  ## Contact
   
   ![Developer Profile Picture](https://avatars.githubusercontent.com/u/90241529?v=4) 
   
