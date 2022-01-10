@@ -8,74 +8,103 @@ function renderLicenseLink(license) {}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(userResponses, userInfo) {
-  let table = `## Table of Contents`;
+  let markdownTable = `## Table of Contents`;
 
   //booleans for optional README elements
-  if (userResponses.installation !== '') {
-    table += `* [Installation] (#installation)`
+  if (userResponses.installation !== '') { markdownTable += `
+  * [Installation](#installation)`
   };
 
-  if (userResponses.usage !== '') {
-    table += `* [Usage] (#usage)`
+  if (userResponses.usage !== '') { markdownTable += `
+  * [Usage](#usage)`
   };
 
-  if (userResponses.credits !== '') {
-    table += `* [Credits] (#credits)`
+  if (userResponses.credits !== '') { markdownTable += `
+  * [Credits](#credits)`
   };
 
-  if (userResponses.tests !== '') {
-    table += `* [Tests] (#tests)`
+  if (userResponses.tests !== '') { markdownTable += `
+  * [Tests](#tests)`
   };
 
   let readMeFrame =
-  `# ${userResponses.title}
+  `# ${userResponses.project}
+  ![Badge for GitHub](https://img.shields.io/github/languages/top/${userResponses.username}/${userResponses.repo}?style=flat&logo=appveyor) 
+
+
   ## Description
-  ${userResponses.description}`
+
+
+  ${userResponses.description}
+  `
   
-  readMeFrame += table;
-  readMeFrame += `* [License] (#license)`;
+  readMeFrame += markdownTable;
 
-  if (userResponses.installation !== '') {
-    readMeFrame += `
-    
-    ## Installation
-    
-    ${userResponses.installation}`
+  readMeFrame += `
+  * [License](#license)`;
+
+  if (userResponses.installation !== '') { readMeFrame += `
+  
+  ## Installation
+  
+  ${userResponses.installation}`
   };
 
-  if (userResponses.usage !== '') {
-    readMeFrame += `
-    
-    ## Usage
-    
-    ${userResponses.usage}`
+  if (userResponses.usage !== '') { readMeFrame += ` 
+  
+  ## Usage
+  
+  ${userResponses.usage}`
   };
 
-  if (userResponses.credits !== '') {
-    readMeFrame += `
-    
-    ## Credits
-    
-    ${userResponses.credits}`
+  if (userResponses.credits !== '') { readMeFrame += `
+  
+  ## Credits
+  
+  ${userResponses.credits}`
   };
 
-  if (userResponses.tests !== '') {
-    readMeFrame += `
-    
-    ## Tests
-    
-    ${userResponses.tests}`
-  }
+  if (userResponses.tests !== '') { readMeFrame += `
+  
+  ## Tests
+  
+  ${userResponses.tests}`
+  };
+
+  readMeFrame += `
+  
+  ## License
+  
+  ${userResponses.license}
+  `;
+
+  let contactMe = 
+  `
+  ---
+  
+  ## Contact
+  
+  ![Developer Profile Picture](${userInfo.avatar_url}) 
+  
+  For questions or comments, contact me:
+ 
+  GitHub: [@${userInfo.login}](${userInfo.url})
+  `;
+
+  if (userInfo.email !== null) {
+  
+  contactMe +=
+  `
+  Email: ${userInfo.email}
+  `};
+
+  readMeFrame += contactMe;
+
+  return readMeFrame;
 
 
  
 ;
-}
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {
-
 }
 
 module.exports = generateMarkdown;
